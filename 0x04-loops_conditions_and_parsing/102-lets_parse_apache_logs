@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#A Bash script that displays the visitor IP along with the HTTP status code from the Apache log file
+
+if [ -f "apache-access.log" ]; then
+    awk '{print $1, $9}' apache-access.log
+else
+    echo "The 'apache-access.log' file does not exist in the current directory."
+fi
