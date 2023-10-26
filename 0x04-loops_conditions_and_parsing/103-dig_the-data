@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#A bash script that groups visitors by IP and HTTP status code and displays this data
+
+if [ -f "apache-access.log" ]; then
+    awk '{ip_code[$1, $9]++} END {for (ic in ip_code) {split(ic, arr, SUBSEP); printf("%d %s %s\n", ip_code[ic], arr[1], arr[2])}}' apache-access.log | sort -nr
+else
+    echo "The 'apache-access.log' file does not exist in the current directory."
+fi
