@@ -1,5 +1,4 @@
-#Install a package/flask / Version must be 2.1.0
-
+#Install a package flask from pip3
 package { 'flask':
   ensure   => '2.1.0',
   provider => 'pip3'
